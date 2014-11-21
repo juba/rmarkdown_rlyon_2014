@@ -135,7 +135,9 @@ On peut aussi mettre un
 ou même une image
 
 ![](img/cat.jpg)
+<p style="font-size: 9px; clear: both;">Image © [Jan Ka](https://500px.com/photo/89423839/what-by-jan-ka)</p>
 </div>
+
 
 
 ## Markdown ?
