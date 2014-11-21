@@ -1,0 +1,57 @@
+---
+title: "Exemple Rmarkdown"
+author: "Hadley Ripley"
+date: "Avant hier"
+runtime: shiny
+---
+
+```{r init, echo=FALSE}
+library(knitr)
+opts_chunk$set(echo=FALSE)
+```
+
+
+# Préparation des données
+
+Chargement des données de l'enquête *Histoire de vies* (INSEE-INED, 2003).
+
+```{r load, message=FALSE}
+library(questionr)
+library(ggplot2)
+data(hdv2003)
+```
+
+
+# Graphique interactif avec ggvis
+
+Exemple de graphique interactif :
+
+```{r ggvis, message=FALSE}
+library(ggvis)
+hdv2003 %>%
+  ggvis(~age,~heures.tv) %>%
+  layer_points(fill=~sexe) %>%
+  add_tooltip(function(data){
+    res <- paste0("Âge : ", data$age,"<br />Heures tv : ", data$heures.tv)
+  }, on="hover")
+
+```
+
+
+
+# Application Shiny
+
+Exemple d'application Shiny intégrée :
+
+```{r shiny}
+sliderInput("bins", "Largeur des classes:", min = 1, max = 10, value = 5)
+selectInput("color", "Couleur", choices=c("Noir"="black","Rouge"="#AA0000","Bleu"="#0022AA"))
+
+renderPlot({
+  ggplot(hdv2003) + 
+    geom_histogram(aes(x=age), fill=input$color,binwidth=input$bins)
+})
+```
+
+
+

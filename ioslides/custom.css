@@ -1,0 +1,87 @@
+
+/* TITLES */
+
+h1,
+h2,
+h3 {
+  font-family: "Roboto Condensed";
+  font-weight: 400;
+}
+
+h2 {
+  line-height: 1;
+  color: #5180A0;
+}
+
+/* TITLE SLIDES */
+
+.segue hgroup {
+  position: absolute;
+  top: 300px;
+}
+
+.title-slide hgroup h1 {
+  margin-left: -10px;
+  line-height: 1.2;
+}
+
+
+/* DARK */
+
+slides > slide.dark {
+  background-color: #517090 !important;
+}
+
+
+/* ELEMENTS */
+
+slides > slide p {
+  color: #333;  
+  font-family: "Roboto Light";
+  line-height: 1.4;
+}
+
+slides > slide ul {
+  color: #333;  
+  font-family: "Roboto Light";
+  list-style-type: none;
+}
+slides > slide li:before {
+   content: '-';
+}
+slides > slide li {
+  margin-bottom: 0.6em;
+}
+
+slides > slide small {
+    font-size: 80%;
+}
+
+/* CODE */
+
+pre.prettyprint.lang-r {
+  padding: 10px !important;
+  background: #fcfcfc;
+  -moz-box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+  overflow-x: auto;
+  margin-left: 0px !important;
+}
+
+pre {
+  font-family: Monaco, monospace;
+  border: 1px solid #EAEAEA;
+  background: #f8f8f8;
+  color: #555;
+  margin-left: 0px !important;
+  padding: 10px !important;
+  width: auto !important;
+  left: 0px !important;
+  letter-spacing: normal !important;
+}
+
+tt, code {
+  font-family: Monaco, monospace;
+  letter-spacing: normal !important;
+}

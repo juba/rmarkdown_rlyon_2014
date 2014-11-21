@@ -1,0 +1,52 @@
+---
+title: "Exemple Rmarkdown"
+author: "Hadley Ripley"
+date: "Avant hier"
+output:
+  pdf_document:
+    number_section: no
+    toc: yes
+  html_document:
+    number_sections: yes
+    self_contained: yes
+    toc: yes
+---
+
+
+# Préparation des données
+
+Chargement des données de l'enquête *Histoire de vies* (INSEE-INED, 2003).
+
+```{r}
+library(questionr)
+library(ggplot2)
+data(hdv2003)
+```
+
+Dimensions du tableau de données :
+
+```{r}
+dim(hdv2003)
+```
+
+Le tableau contient `r nrow(hdv2003)` observations et `r ncol(hdv2003)` variables.
+
+
+# Graphique
+
+Histogramme de la répartition du nombre d'heures passées quotidiennement devant la télévision :
+
+```{r}
+ggplot(hdv2003) + 
+  geom_histogram(aes(x=heures.tv), binwidth=1) + 
+  facet_grid(~sexe)
+```
+
+
+# Tableau
+
+Tableau croisé entre la catégorie socio-professionnelle et le sentiment d'appartenance à une classe sociale :
+
+```{r}
+table(hdv2003$qualif, hdv2003$clso)
+```
